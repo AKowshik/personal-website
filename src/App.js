@@ -2,12 +2,13 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import Navbar from './Components/Navbar';
+import MyHome from './Components/Home';
+
 
 function App() {
   return (
     <div>
-       <Navbar/>
+       <MyHome/>
     </div>
   );
 }
