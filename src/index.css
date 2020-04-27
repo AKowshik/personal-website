@@ -29,7 +29,6 @@ a {
   padding: 10px;
 }
 
-
 .myfooter {
   position: fixed;
   font-size: medium;
@@ -39,4 +38,16 @@ a {
   padding-bottom: 30px;
   background-color: #242424 ;
   text-align: center;
+}
+
+.mybio {
+  font-size: x-large;
+  padding-top: 15%;
+  padding-right: 35%;
+  float: right;
+}
+
+.arrow {
+  padding-top: 10%;
+  padding-left: 49%;
 }
