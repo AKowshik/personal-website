@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import MyHome from './Components/Home';
+import MyHome from './Components/Home/Home';
 
 
 function App() {
