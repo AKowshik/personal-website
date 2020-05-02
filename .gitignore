@@ -1,4 +1,4 @@
 node_modules
 public
 package-lock.json
-src/Components/Assets
+src/Components/Assets/
