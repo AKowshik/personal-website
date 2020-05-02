@@ -1,0 +1,13 @@
+
+  .aboutMe {
+    background-color: #101010;
+    color: white;
+    padding-top: 100px;
+    padding-left: 30%;
+    padding-right: 30%;
+    height: 100vh;
+    text-justify: inter-word;
+    text-align: justify;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: xx-large;
+  }

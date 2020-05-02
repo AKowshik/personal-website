@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Divider } from 'rsuite';
 import './MyFooter.css'
 
 const myFooter = () => {
@@ -11,7 +11,6 @@ const myFooter = () => {
                 <Divider vertical />
                 <a href='//www.instagram.com/ankith_c_kowshik/' target='_blank'>Instagram</a>
         </div>
-
     )
 }
 
