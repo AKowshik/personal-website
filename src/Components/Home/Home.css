@@ -1,9 +1,12 @@
+
   .mybio {
-    display: inline-block;
-    font-size: x-large;
-    padding-top: 10%;
-    padding-right: 35%;
-    padding-left: 150px;
+    position: absolute; 
+    margin-left: 35vh;
+    font-size: 5vh;
+    width: 60vw;
+    top: 30vh;
+    /* background-color: lightseagreen; */
+    text-justify: inter-word;
   }
   
   .arrow {
@@ -13,7 +16,28 @@
     padding-left: 49%;
   }
   
-  /* .openingPage {
-    padding-bottom: 19%;
-    background-image: url('https://wallpaperaccess.com/full/1216317.png');
-  } */
+  .openingPage {
+      /* background-color: cornflowerblue; */
+      height: 100vh;
+    /* background-image: url('https://wallpaperaccess.com/full/1216317.png'); */
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .aboutMe {
+    background-color: black;
+    color: white;
+    height: 100vh;
+  }
+
+  .myInfo {
+    position: absolute;
+    margin-top: 20vh;
+    margin-left: 10vh;
+    margin-right: 10vh;
+    font-size: 5vh;
+    /* width: 90vw; */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    /* background-color: mediumslateblue; */
+    text-justify: inter-word;
+  }

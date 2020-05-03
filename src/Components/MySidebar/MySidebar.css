@@ -1,6 +1,8 @@
 .mySidebar {
-    margin-top: 150px;
-    display: inline-block;
-    width: 66px;
-    padding: 10px;
+    position: absolute;
+    width: 45px;
+    margin-left: 15px;
+    /* background-color: lawngreen; */
+    bottom: 10vh;
+    z-index: 500;
 }

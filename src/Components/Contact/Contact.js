@@ -26,6 +26,7 @@ class Contact extends Component {
     //    }
     //    else return null;
     //  }
+    // Biding is necessary when passing paramaters
 
     componentWillReceiveProps(props) {
         this.setState({ show: props.show })

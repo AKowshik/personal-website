@@ -1,8 +1,18 @@
 .myNavbar {
+    margin-top: 30px;
     position: sticky;
     top: 0;
-    width: 100%;
-    padding-left: 50px;
-    padding-right: 50px;
-    background-color: white;
-  }
+    width: 100vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    /* padding-bottom: 5vw; */
+    transition: padding 0.5s;
+    /* background-color: transparent; */
+    z-index: 550;
+    float: left;
+    color: black;
+}
+
+.myNavbar:hover{
+  padding-bottom: 0;
+}

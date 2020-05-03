@@ -3,25 +3,31 @@ import { Icon } from 'rsuite';
 
 import MyNavbar from '../MyNavbar/MyNavbar';
 import MySidebar from '../MySidebar/MySidebar';
-import AboutMe from '../AboutMe/AboutMe';
 import MyFooter from '../MyFooter/MyFooter';
-import Projects from '../Projects/Projects'
+import Projects from '../Projects/Projects';
 import './Home.css'
 
 class MyHome extends Component {
 
+    scrollPageHandler = () => {
+
+    }
+
     render() {
         return (
             <div>
-                <div style={{ paddingTop: "40px", height: "100vh" }}>
-                    <MyNavbar />
+                <MyNavbar />
+                <div className="openingPage">
                     <MySidebar />
                     <div className='mybio'>
-                        <h1>Ankith C Kowshik</h1>
-                        <p>Passionate software delveoper exploring the world<br /> of computer science. Documenting the <br /> process on the way.</p>
+                        <p>Ankith C Kowshik <br />Passionate software delveoper exploring the world of computer science. Documenting the process on the way.</p>
                     </div>
                 </div>
-                <AboutMe />
+                <div className="aboutMe">
+                    <div className="myInfo">
+                        <p>Hi! Welcome to my blog where I document my thoughts and explore the field of computer science</p>
+                    </div>
+                </div>
                 <Projects
                     headerValue="YOLO Based License Plate Detection"
                     cardInfo="Trained a convolutional neural networks based on the YOLO algorithm to detect and extact car license plates from a video source" />
