@@ -19,7 +19,8 @@
   .openingPage {
       /* background-color: cornflowerblue; */
       height: 100vh;
-    /* background-image: url('https://wallpaperaccess.com/full/1216317.png'); */
+      
+    background-image: url('../Assets/mybg.jpg');
     background-size: cover;
     background-attachment: fixed;
   }

@@ -11,6 +11,7 @@ class MyNavbar extends Component {
         super(props);
         this.state = {
             show: false,
+            navbarType: "myNavbar",
             navbarColor: "transparent"
         }
         this.showContactsHandler = this.showContactsHandler.bind(this);
@@ -24,9 +25,11 @@ class MyNavbar extends Component {
 
     listenScrollEvent = () => {
         if (window.scrollY) {
-          this.setState({navbarColor: 'white'})
+          this.setState({navbarColor: 'white'});
+          this.setState({navbarType: 'myNavbarOnScroll'});
         } else {
-          this.setState({navbarColor: 'transparent'})
+          this.setState({navbarColor: 'transparent'});
+          this.setState({navbarType: 'myNavbar'});
         }
       }
     
@@ -42,11 +45,11 @@ class MyNavbar extends Component {
         }
 
         const navbarStyling = {
-            backgroundColor: this.state.navbarColor,
+            backgroundColor: this.state.navbarColor
         }
 
         return (
-            <div className='myNavbar' style={navbarStyling}>
+            <div className={this.state.navbarType} style={navbarStyling}>
                     <Navbar appearance="subtle" style={navbarStyling}>
                         <Navbar.Body>
                             <Nav>
