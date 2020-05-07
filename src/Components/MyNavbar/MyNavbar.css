@@ -7,7 +7,7 @@
     padding-left: 5vw;
     padding-right: 5vw;
     padding-bottom: 3vh;
-    animation-name: animateNavbarTop ;
+    animation-name: animateNavbarTop ; 
     animation-duration: 1s;
     /* background-color: transparent; */
     z-index: 550;

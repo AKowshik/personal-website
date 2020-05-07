@@ -48,7 +48,7 @@ class Contact extends Component {
 
     render() {
         return (
-            <Modal backdrop="static" overflow={false} size="md" show={this.state.show} onHide={this.close}>
+            <Modal backdrop="static" overflow={false} size="md" show={this.state.show} onHide={this.props.close}>
                 <Modal.Header closeButton={true}>
                     <Modal.Title>Send me an email </Modal.Title>
                 </Modal.Header>
@@ -81,7 +81,7 @@ class Contact extends Component {
                 <p style={{ textAlign: "center", fontWeight: "bold" }}>For any inquiries contact: <br /> ankith.kowshik@gmail.com</p>
                 <Modal.Footer>
 
-                    <Button onClick={this.close} appearance="primary">
+                    <Button onClick={this.props.close} appearance="primary">
                         Submit
                     </Button>
                 </Modal.Footer>

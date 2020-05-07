@@ -17,6 +17,10 @@ class MyNavbar extends Component {
         this.showContactsHandler = this.showContactsHandler.bind(this);
     }
 
+    hideContactsHandler = () => {
+        this.setState({show: false});
+    }
+
     showContactsHandler = () => {
         console.log("Clicked")
         this.setState({show: true });
@@ -59,7 +63,8 @@ class MyNavbar extends Component {
                             </Nav>
                             <Nav pullRight>
                                 <Nav.Item onClick={this.showContactsHandler}><p style={textStyle}>Contact</p></Nav.Item>
-                                <Contact show={this.state.show} />
+                                <Contact show={this.state.show} close={this.hideContactsHandler} />
+                                {console.log("State of contact modal ", this.state.show)}
                             </Nav>
                         </Navbar.Body>
                     </Navbar>
