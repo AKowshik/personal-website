@@ -20,17 +20,17 @@ class MyNavbar extends Component {
 
     listenScrollEvent = () => {
         if (window.scrollY > 29) {
-          this.setState({navStyle: navStyles.myNavbarAlt});
-          this.setState({navbarColor: "white"});
+            this.setState({ navStyle: navStyles.myNavbarAlt });
+            this.setState({ navbarColor: "white" });
         } else {
-          this.setState({navStyle: navStyles.myNavbar});
-          this.setState({navbarColor: "transparent"});
+            this.setState({ navStyle: navStyles.myNavbar });
+            this.setState({ navbarColor: "transparent" });
         }
-      }
-    
-      componentDidMount() {
+    }
+
+    componentDidMount() {
         window.addEventListener('scroll', this.listenScrollEvent)
-      }
+    }
 
     render() {
 
@@ -41,31 +41,39 @@ class MyNavbar extends Component {
 
         return (
             <div>
-                    <Navbar appearance="subtle" className={this.state.navStyle} style={{backgroundColor: this.state.navbarColor}}>
-                        <Navbar.Body>
-                            <Nav>
-                            <Link to="/"><Nav.Item><p style={textStyle}>Ankith C K</p></Nav.Item></Link>
-                                <Nav.Item><p style={textStyle}>Projects </p></Nav.Item>
-                                <Nav.Item><p style={textStyle}>Blog</p></Nav.Item>
-                            </Nav>
-                            <Nav pullRight>
-                               <Link to="/contact"> <Nav.Item><p style={textStyle}>Contact</p></Nav.Item></Link>
-                            </Nav>
-                        </Navbar.Body>
-                    </Navbar>
+                <Navbar appearance="subtle" className={this.state.navStyle} style={{ backgroundColor: this.state.navbarColor }}>
+                    <Navbar.Body>
+                        <Nav>
+                            <Nav.Item active={false} componentClass={Link} to="/">
+                                <p style={textStyle}>Ankith C K</p>
+                            </Nav.Item>
+                            <Nav.Item componentClass={Link} to="/projects">
+                                <p style={textStyle}>Projects </p>
+                            </Nav.Item>
+                            <Nav.Item componentClass={Link} to="/blog">
+                                <p style={textStyle}>Blog</p>
+                            </Nav.Item>
+                        </Nav>
+                        <Nav pullRight>
+                            <Nav.Item componentClass={Link} to="/contact">
+                                <p style={textStyle}>Contact</p>
+                            </Nav.Item>
+                        </Nav>
+                    </Navbar.Body>
+                </Navbar>
 
-                    <Switch>
-                        <Route path="/contact" exact>
-                            <Contact/>
-                        </Route>
-                        <Route path="/" exact>
-                            <MyHome/>
-                        </Route>
-                    </Switch>
+                <Switch>
+                    <Route path="/contact" exact>
+                        <Contact />
+                    </Route>
+                    <Route path="/" exact>
+                        <MyHome />
+                    </Route>
+                </Switch>
             </div>
         );
     }
 }
 
 
-export default  MyNavbar;
+export default MyNavbar;
