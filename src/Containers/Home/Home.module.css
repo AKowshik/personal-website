@@ -8,24 +8,19 @@
     /* background-color: lightseagreen; */
     text-justify: inter-word;
   }
-  
-  .arrow {
-    position: relative;
-    bottom: 0;
-    padding-top: 10%;
-    padding-left: 49%;
-  }
-  
+
   .openingPage {
-      /* background-color: cornflowerblue; */
+    /* position: relative; */
+      position: relative;
+      background-color: cornflowerblue;
       height: 100vh;
-      
-    background-image: url('../Assets/mybg.jpg');
+    background-image: url('../../Components/Assets/mybg.jpg');
     background-size: cover;
     background-attachment: fixed;
   }
 
   .aboutMe {
+    position: relative;
     background-color: black;
     color: white;
     height: 100vh;
@@ -37,8 +32,26 @@
     margin-left: 10vh;
     margin-right: 10vh;
     font-size: 5vh;
+    
     /* width: 90vw; */
     font-family: Georgia, 'Times New Roman', Times, serif;
     /* background-color: mediumslateblue; */
     text-justify: inter-word;
   }
+
+  .mySidebar {
+    position: absolute;
+    width: 45px;
+    margin-left: 15px;
+    /* background-color: lawngreen; */
+    bottom: 10vh;
+    z-index: 500;
+}
+
+.projects {
+  position: relative;
+  height: 100vh;
+  padding-right: 5vw;
+  padding-left: 5vw;
+  padding-top: 10vh;
+}

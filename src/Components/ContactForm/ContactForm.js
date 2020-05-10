@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Modal, FormGroup, ControlLabel, FormControl, Button, Form } from 'rsuite'
 
-import './Contact.css'
+import contactStyles from './ContactForm.module.css'
 
-class Contact extends Component {
+class ContactForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -13,31 +13,8 @@ class Contact extends Component {
                 subject: '',
                 message: ''
             },
-            show: false
         };
-        this.close = this.close.bind(this);
-        this.open = this.open.bind(this);
-        this.handleChange = this.handleChange.bind(this);
-    }
 
-    // static getDerivedStateFromProps(nextProps, prevState){
-    //     if(nextProps.show!==prevState.show){
-    //       return { show: nextProps.show};
-    //    }
-    //    else return null;
-    //  }
-    // Biding is necessary when passing paramaters
-
-    componentWillReceiveProps(props) {
-        this.setState({ show: props.show })
-    }
-
-    close() {
-        this.setState({ show: false });
-    }
-
-    open() {
-        this.setState({ show: true });
     }
 
     handleChange(value) {
@@ -48,11 +25,6 @@ class Contact extends Component {
 
     render() {
         return (
-            <Modal backdrop="static" overflow={false} size="md" show={this.state.show} onHide={this.props.close}>
-                <Modal.Header closeButton={true}>
-                    <Modal.Title>Send me an email </Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
                     <Form fluid onChange={this.handleChange} formValue={this.state.formValue}>
                         <FormGroup>
                             <ControlLabel>Name</ControlLabel>
@@ -71,23 +43,17 @@ class Contact extends Component {
                         <FormGroup>
                             <ControlLabel>Message</ControlLabel>
                             <FormControl
-                                rows={4}
+                                rows={6}
                                 name="message"
                                 componentClass="textarea"
                             />
                         </FormGroup>
-                    </Form>
-                </Modal.Body>
-                <p style={{ textAlign: "center", fontWeight: "bold" }}>For any inquiries contact: <br /> ankith.kowshik@gmail.com</p>
-                <Modal.Footer>
-
-                    <Button onClick={this.props.close} appearance="primary">
-                        Submit
-                    </Button>
-                </Modal.Footer>
-            </Modal>
+                        <FormGroup style={{textAlign: "center"}}>
+                        <Button appearance="default">Submit</Button>
+                        </FormGroup>
+                    </Form>   
         )
     }
 }
 
-export default Contact;
+export default ContactForm;

@@ -1,0 +1,39 @@
+.myNavbar {
+    position: sticky;
+    top: 0;
+    padding-top: 30px;
+    width: 100vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    padding-bottom: 30px;
+    animation-name: animateOnReachingTop; 
+    animation-duration: 0.5s;
+    background-color: transparent;
+    z-index: 550;
+    float: left;
+    color: black;
+}
+
+.myNavbarAlt {
+    position: sticky;
+    top: 0;
+    width: 100vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    animation-name: animateOnScrollDown;
+    animation-duration: 0.5s;
+    background-color: white;
+    z-index: 550;
+    float: left;
+    color: black;
+}
+
+@keyframes animateOnScrollDown {
+  from {padding-bottom: 30px; padding-top: 30px;}
+  to {padding-bottom: 0vw; padding-top: 0px;}
+}
+
+@keyframes animateOnReachingTop {
+  from{padding-bottom: 0vw; padding-top: 0px;}
+  to {padding-bottom: 30px; padding-top: 30px;}
+}

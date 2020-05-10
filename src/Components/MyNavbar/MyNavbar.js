@@ -1,39 +1,30 @@
 import React, { Component } from 'react';
 import { Navbar, Nav } from 'rsuite';
-import Contact from '../Contact/Contact';
+import { Link, Route } from 'react-router-dom';
+import Contact from '../../Containers/Contact/Contact';
+import MyHome from '../../Containers/Home/Home';
 
-import './MyNavbar.css';
-import { createPortal } from 'react-dom';
+import navStyles from './MyNavbar.module.css';
+import { Switch } from 'react-router-dom';
 
 class MyNavbar extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            show: false,
-            navbarType: "myNavbar",
+            navStyle: navStyles.myNavbar,
             navbarColor: "transparent"
         }
-        this.showContactsHandler = this.showContactsHandler.bind(this);
     }
 
-    hideContactsHandler = () => {
-        this.setState({show: false});
-    }
-
-    showContactsHandler = () => {
-        console.log("Clicked")
-        this.setState({show: true });
-        console.log(this.state.show);
-    }
 
     listenScrollEvent = () => {
-        if (window.scrollY) {
-          this.setState({navbarColor: 'white'});
-          this.setState({navbarType: 'myNavbarOnScroll'});
+        if (window.scrollY > 29) {
+          this.setState({navStyle: navStyles.myNavbarAlt});
+          this.setState({navbarColor: "white"});
         } else {
-          this.setState({navbarColor: 'transparent'});
-          this.setState({navbarType: 'myNavbar'});
+          this.setState({navStyle: navStyles.myNavbar});
+          this.setState({navbarColor: "transparent"});
         }
       }
     
@@ -48,26 +39,29 @@ class MyNavbar extends Component {
             color: "black",
         }
 
-        const navbarStyling = {
-            backgroundColor: this.state.navbarColor
-        }
-
         return (
-            <div className={this.state.navbarType} style={navbarStyling}>
-                    <Navbar appearance="subtle" style={navbarStyling}>
+            <div>
+                    <Navbar appearance="subtle" className={this.state.navStyle} style={{backgroundColor: this.state.navbarColor}}>
                         <Navbar.Body>
                             <Nav>
-                                <Nav.Item><p style={textStyle}>Ankith C K</p></Nav.Item>
+                            <Link to="/"><Nav.Item><p style={textStyle}>Ankith C K</p></Nav.Item></Link>
                                 <Nav.Item><p style={textStyle}>Projects </p></Nav.Item>
                                 <Nav.Item><p style={textStyle}>Blog</p></Nav.Item>
                             </Nav>
                             <Nav pullRight>
-                                <Nav.Item onClick={this.showContactsHandler}><p style={textStyle}>Contact</p></Nav.Item>
-                                <Contact show={this.state.show} close={this.hideContactsHandler} />
-                                {console.log("State of contact modal ", this.state.show)}
+                               <Link to="/contact"> <Nav.Item><p style={textStyle}>Contact</p></Nav.Item></Link>
                             </Nav>
                         </Navbar.Body>
                     </Navbar>
+
+                    <Switch>
+                        <Route path="/contact" exact>
+                            <Contact/>
+                        </Route>
+                        <Route path="/" exact>
+                            <MyHome/>
+                        </Route>
+                    </Switch>
             </div>
         );
     }
