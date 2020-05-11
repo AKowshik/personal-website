@@ -18,16 +18,18 @@ class MyHome extends Component {
                 </div>
                 <div className={homeStyles.aboutMe}>
                     <div className={homeStyles.myInfo}>
-                        <p>Hi! Welcome to my blog where I document my thoughts and explore the field of computer science</p>
+                        <p style={{textAlign: "center"}}>Hi! Welcome to my blog.</p>
+                        <p style={{fontSize: "3vh"}}>Always a believer in learning through practice and exploration,
+                         I hope to use this page as a means to document and display all that I obtain from the world of computer science. </p>
                     </div>
                 </div>
-                <div className={homeStyles.projects}>
-                    <div>
+                <div id="projects" className={homeStyles.projects}>
+                    <div className={homeStyles.projectPanel}>
                         <Projects
                             headerValue="YOLO Based License Plate Detection"
                             cardInfo="Trained a convolutional neural networks based on the YOLO algorithm to detect and extact car license plates from a video source" />
                     </div>
-                    <div>
+                    <div className={homeStyles.projectPanel}>
                         <Projects
                             headerValue="Personal Website"
                             cardInfo="A presonal website implemented using Node JS and React deployed on an AWS instance " />

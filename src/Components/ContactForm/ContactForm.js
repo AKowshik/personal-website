@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Modal, FormGroup, ControlLabel, FormControl, Button, Form } from 'rsuite'
-
-import contactStyles from './ContactForm.module.css'
+import { FormGroup, ControlLabel, FormControl, Button, Form } from 'rsuite'
 
 class ContactForm extends Component {
     constructor(props) {

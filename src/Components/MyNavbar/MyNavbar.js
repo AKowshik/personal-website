@@ -3,9 +3,9 @@ import { Navbar, Nav } from 'rsuite';
 import { Link, Route } from 'react-router-dom';
 import Contact from '../../Containers/Contact/Contact';
 import MyHome from '../../Containers/Home/Home';
-
 import navStyles from './MyNavbar.module.css';
 import { Switch } from 'react-router-dom';
+import Blog from '../../Containers/Blog/Blog';
 
 class MyNavbar extends Component {
 
@@ -44,7 +44,7 @@ class MyNavbar extends Component {
                 <Navbar appearance="subtle" className={this.state.navStyle} style={{ backgroundColor: this.state.navbarColor }}>
                     <Navbar.Body>
                         <Nav>
-                            <Nav.Item active={false} componentClass={Link} to="/">
+                            <Nav.Item componentClass={Link} to="/">
                                 <p style={textStyle}>Ankith C K</p>
                             </Nav.Item>
                             <Nav.Item componentClass={Link} to="/projects">
@@ -63,10 +63,13 @@ class MyNavbar extends Component {
                 </Navbar>
 
                 <Switch>
-                    <Route path="/contact" exact>
+                    <Route exact path="/contact" >
                         <Contact />
                     </Route>
-                    <Route path="/" exact>
+                    <Route exact path="/blog" >
+                        <Blog />
+                    </Route>
+                    <Route exact path="/" >
                         <MyHome />
                     </Route>
                 </Switch>

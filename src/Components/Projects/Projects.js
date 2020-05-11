@@ -4,8 +4,9 @@ import { Panel } from 'rsuite';
 const panelStyle = {
 
     display: 'inline-block', 
-    width: "500px", 
-    padding: "20px"
+    width: "35vw", 
+    padding: "20px",
+    height: "20vh"
 }
 
 const projects = (props) => {

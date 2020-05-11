@@ -5,11 +5,11 @@ import footerStyles from'./MyFooter.module.css'
 const myFooter = () => {
     return (
         <div className={footerStyles.myFooter}>
-                <a style={{color: "white"}} href='//github.com/AKowshik' target='_blank'>GitHub</a>
+                <a style={{color: "white"}} href='//github.com/AKowshik'>GitHub</a>
                 <Divider vertical />
-                <a style={{color: "white"}} href='//linkedin.com/in/ankith-c-kowshik-306860168/' target='_blank'>LinkedIn</a>
+                <a style={{color: "white"}} href='//linkedin.com/in/ankith-c-kowshik-306860168/'>LinkedIn</a>
                 <Divider vertical />
-                <a style={{color: "white"}} href='//www.instagram.com/ankith_c_kowshik/' target='_blank'>Instagram</a>
+                <a style={{color: "white"}} href='//www.instagram.com/ankith_c_kowshik/'>Instagram</a>
         </div>
     )
 }
