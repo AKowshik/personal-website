@@ -6,6 +6,7 @@ import MyHome from '../../Containers/Home/Home';
 import navStyles from './MyNavbar.module.css';
 import { Switch } from 'react-router-dom';
 import Blog from '../../Containers/Blog/Blog';
+import FullPost from '../BlogPost/FullPost/FullPost';
 
 class MyNavbar extends Component {
 
@@ -72,6 +73,7 @@ class MyNavbar extends Component {
                     <Route exact path="/" >
                         <MyHome />
                     </Route>
+                    <Route path="/:id" exact component={FullPost}/>
                 </Switch>
             </div>
         );
