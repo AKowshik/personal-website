@@ -1,7 +1,5 @@
 import React from 'react'
 import postStyle from './PostHeader.module.css'
-import { Switch, Link, Route, withRouter } from 'react-router-dom'
-import FullPost from '../FullPost/FullPost'
 
 const myBlogPost = (props) => (
         <div>

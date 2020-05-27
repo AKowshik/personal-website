@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import BlogPost from '../../Components/BlogPost/PostHeader/PostHeader';
 import { Link } from 'react-router-dom'
-import FullPost from '../../Components/BlogPost/FullPost/FullPost';
 
 class Blog extends Component {
 
@@ -45,7 +44,6 @@ class Blog extends Component {
                 <section>
                     {posts}
                 </section>
-                {/* <FullPost id={this.state.selectedPostId} /> */}
             </div>
         )
     }

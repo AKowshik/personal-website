@@ -58,9 +58,9 @@
 }
 
 .projectPanel {
-  position: relative;
-  padding-left: 3vw;
-  padding-right: 3vw;
-  display: inline-block;
+  /* position: relative; */
+  padding-left: 5vw;
+  padding-right: 5vw;
+  /* display: inline-block; */
   /* background-color: tomato; */
 }

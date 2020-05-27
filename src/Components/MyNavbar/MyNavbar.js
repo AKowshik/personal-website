@@ -48,9 +48,11 @@ class MyNavbar extends Component {
                             <Nav.Item componentClass={Link} to="/">
                                 <p style={textStyle}>Ankith C K</p>
                             </Nav.Item>
-                            <Nav.Item componentClass={Link} to="/projects">
+                            {/* <Nav.Item componentClass={Link} to={{
+                                pathname: "/",
+                                hash: "#projects"}}>
                                 <p style={textStyle}>Projects </p>
-                            </Nav.Item>
+                            </Nav.Item> */}
                             <Nav.Item componentClass={Link} to="/blog">
                                 <p style={textStyle}>Blog</p>
                             </Nav.Item>
