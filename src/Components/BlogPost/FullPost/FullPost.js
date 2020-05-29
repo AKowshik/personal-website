@@ -11,8 +11,9 @@ class FullPost extends Component {
     componentDidMount() {
         if (this.props.match.params.id) {
             if( !this.state.loadedPost || (this.state.loadedPost && this.state.loadedPost.id !==  this.props.match.params.id )){
-                axios.get('https://jsonplaceholder.typicode.com/posts/' + this.props.match.params.id)
+                axios.get('http://localhost:5000/blog/' + this.props.match.params.id)
                 .then(response => {
+                    console.log("Reponse data in blog is ", response.data)
                     this.setState({ loadedPost: response.data });
                 });
             }
@@ -30,9 +31,12 @@ class FullPost extends Component {
             post = (
                 <div>
                     <h1>
-                        Some text or paragraph goes here
+                        {this.state.loadedPost[0][1]}
                         The post id is {this.props.match.params.id}
                     </h1>
+                    <p>
+                        {this.state.loadedPost[0][2]}
+                    </p>
                 </div>
             )
         }

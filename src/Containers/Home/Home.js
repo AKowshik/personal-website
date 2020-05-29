@@ -2,12 +2,56 @@ import React, { Component } from 'react';
 import MySidebar from '../../Components/MySidebar/MySidebar';
 import Projects from '../../Components/Projects/Projects';
 import homeStyles from './Home.module.css'
-import { Row, Col} from 'rsuite';
+// import { Table } from 'rsuite';
+import axios from 'axios';
+import { Table } from 'semantic-ui-react';
 
 class MyHome extends Component {
 
+    state = {
+        posts: [],
+    }
+
+    componentDidMount() {
+        axios.get('http://localhost:5000/')
+            .then(response => {
+                const posts = response.data; 
+                this.setState({ posts: posts });
+            })
+            .catch(error => {
+                console.log(error);
+            })
+            
+    }
 
     render() {
+
+        //Fix issue with multiple udpates of state on scroll to table
+        console.log("State is ", this.state.posts);
+        const posts = this.state.posts.map(post => {
+            return (
+                <Table basic='very' key={post[0]} >
+                        <Table.Header>
+                            <Table.Row>
+                                <Table.HeaderCell>Title</Table.HeaderCell>
+                                <Table.HeaderCell>Description</Table.HeaderCell>
+                                <Table.HeaderCell>Language</Table.HeaderCell>
+                            </Table.Row>
+                        </Table.Header>
+
+                        <Table.Body>
+                            <Table.Row>
+                                <Table.Cell>{post[1]}</Table.Cell>
+                                <Table.Cell>{post[2]}</Table.Cell>
+                                <Table.Cell>{post[3]}</Table.Cell>
+                            </Table.Row>
+                        </Table.Body>
+                    </Table>
+            );
+        });
+
+        const { Column, HeaderCell, Cell } = Table;
+
         return (
             <div>
                 <div className={homeStyles.openingPage}>
@@ -26,35 +70,34 @@ class MyHome extends Component {
                     </div>
                 </div>
                 <div id="projects" className={homeStyles.projects}>
-                    <p style={{ fontSize: "5vh" }}>Some of my projects</p>
-                    <Row>
-                        <Col xl={4} md={6} sm={12} >
-                            <Projects
-                                headerValue="YOLO Based License Plate Detection"
-                                cardInfo="Trained a convolutional neural networks based on the YOLO algorithm to detect and extact car license plates from a video source" />
-                        </Col>
-                        <Col xl={4} md={6} sm={12}>
-                        <Projects
-                            headerValue="Personal Website"
-                            cardInfo="A presonal website implemented using Node JS and React deployed on an AWS instance " />
-                        </Col>
+                    <p style={{ fontSize: "3vh" }}>Some of my projects</p>
+                    {/* <Table
+                        wordWrap
+                        height={800}
+                        autoHeight
+                        data={this.state.posts}
+                        onRowClick={data => {
+                            console.log(data);
+                        }}
+                    >
+                        <Column>
+                            <HeaderCell align="center">Title</HeaderCell>
+                            <Cell dataKey="title" />
+                        </Column>
 
-                        <Col xl={4} md={6} sm={12}>
-                        <Projects
-                            headerValue="Linux System Programming"
-                            cardInfo="Personal implementaions of various linux utilities, demonstrations of various system calls and the usage of linux structures" />
-                        </Col>
-                    </Row>
-                    {/* <div className={homeStyles.projectPanel}>
-                        <Projects
-                            headerValue="YOLO Based License Plate Detection"
-                            cardInfo="Trained a convolutional neural networks based on the YOLO algorithm to detect and extact car license plates from a video source" />
-                    </div>
-                    <div className={homeStyles.projectPanel}>
-                        <Projects
-                            headerValue="Personal Website"
-                            cardInfo="A presonal website implemented using Node JS and React deployed on an AWS instance " />
-                    </div> */}
+                        <Column>
+                            <HeaderCell align="center">Description</HeaderCell>
+                            <Cell dataKey="description" />
+                        </Column>
+
+                        <Column>
+                            <HeaderCell align="center">Language</HeaderCell>
+                             <Cell dataKey="language" /> 
+                        </Column>
+                    </Table> */}
+                    {posts}
+                    
+
                 </div>
             </div>
         )

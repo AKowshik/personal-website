@@ -12,14 +12,16 @@ class Blog extends Component {
 
 
     componentDidMount() {
-        axios.get('https://jsonplaceholder.typicode.com/posts')
+        axios.get('http://localhost:5000/blog')
             .then(response => {
-                const posts = response.data.slice(0, 4); // Temporary solution. Not necessary when backend is implemented
+                const posts = response.data; 
                 this.setState({ posts: posts });
+                
             })
             .catch(error => {
                 console.log(error);
             })
+            
     }
 
     postSelectedHandler = (id) => {
@@ -27,14 +29,15 @@ class Blog extends Component {
     }
 
     render() {
-
+        console.log("State is ", this.state.posts);
         const posts = this.state.posts.map(post => {
             return (
-                <Link to={"/" + post.id} 
-                    key={post.id}>
+                <Link to={"/blog/" + post[0]} 
+                    key={post[0]}>
                     <BlogPost
-                        title={post.title}
-                        clicked={() => this.postSelectedHandler(post.id)} />
+                        title={post[1]}
+                        date={post[2]}
+                        clicked={() => this.postSelectedHandler(post[0])} />
                 </Link>
             );
         });

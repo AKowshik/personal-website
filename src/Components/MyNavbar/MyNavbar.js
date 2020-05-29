@@ -75,7 +75,7 @@ class MyNavbar extends Component {
                     <Route exact path="/" >
                         <MyHome />
                     </Route>
-                    <Route path="/:id" exact component={FullPost}/>
+                    <Route path="/blog/:id" exact component={FullPost}/>
                 </Switch>
             </div>
         );

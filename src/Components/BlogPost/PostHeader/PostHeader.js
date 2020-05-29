@@ -5,7 +5,7 @@ const myBlogPost = (props) => (
         <div>
             <article className={postStyle.post} onClick={props.clicked}>
                 <h1>{props.title}</h1>
-                <p> Some text goes here </p>
+                <p>{props.date} </p>
             </article>
         </div>
 )
