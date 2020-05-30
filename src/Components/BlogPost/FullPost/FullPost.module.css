@@ -1,0 +1,18 @@
+.postTitle {
+    position: relative;
+    font-size: xx-large;
+    padding-top: 200px;
+    margin-left: 10vw;
+    bottom: 0;
+    /* background-image: url('../../Assets/mybg.jpg'); */
+}
+
+
+.postBody {
+    position: relative;
+    margin-top: 10vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    padding-bottom: 10vh;
+    font-size: large;
+}

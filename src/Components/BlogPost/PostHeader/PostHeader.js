@@ -1,13 +1,26 @@
 import React from 'react'
 import postStyle from './PostHeader.module.css'
+import { Item } from 'semantic-ui-react'
+import { Avatar } from 'rsuite'
 
 const myBlogPost = (props) => (
-        <div>
-            <article className={postStyle.post} onClick={props.clicked}>
-                <h1>{props.title}</h1>
-                <p>{props.date} </p>
-            </article>
-        </div>
+
+    <div className={postStyle.post} onClick={props.clicked}>
+        <Item.Group divided>
+            <Item>
+                <Item.Content >
+                    <Avatar
+                        style={{ float: "left", marginRight: "20px"}}
+                        circle
+                        size='lg'
+                        src={props.image}
+                    />
+                    <Item.Header style={{ marginTop: "10px"}}>{props.title}</Item.Header>
+                    <Item.Meta >{props.date}</Item.Meta>
+                </Item.Content>
+            </Item>
+        </Item.Group>
+    </div>
 )
 
 export default myBlogPost;

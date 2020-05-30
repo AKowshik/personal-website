@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import MySidebar from '../../Components/MySidebar/MySidebar';
-import Projects from '../../Components/Projects/Projects';
 import homeStyles from './Home.module.css'
-// import { Table } from 'rsuite';
 import axios from 'axios';
 import { Table } from 'semantic-ui-react';
 
@@ -10,47 +8,43 @@ class MyHome extends Component {
 
     state = {
         posts: [],
+        loadedProjects: null
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/')
-            .then(response => {
-                const posts = response.data; 
-                this.setState({ posts: posts });
-            })
-            .catch(error => {
-                console.log(error);
-            })
-            
+        if (!this.state.loadedPost) {
+            axios.get('http://localhost:5000/')
+                .then(response => {
+                    const posts = response.data;
+                    this.setState({ posts: posts });
+                    this.setState({ loadedPost: response.data });
+                    console.log("Axios called")
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        }
+
+
     }
 
     render() {
 
         //Fix issue with multiple udpates of state on scroll to table
-        console.log("State is ", this.state.posts);
+        // console.log("State is ", this.state.posts);
         const posts = this.state.posts.map(post => {
             return (
-                <Table basic='very' key={post[0]} >
-                        <Table.Header>
-                            <Table.Row>
-                                <Table.HeaderCell>Title</Table.HeaderCell>
-                                <Table.HeaderCell>Description</Table.HeaderCell>
-                                <Table.HeaderCell>Language</Table.HeaderCell>
-                            </Table.Row>
-                        </Table.Header>
-
-                        <Table.Body>
-                            <Table.Row>
-                                <Table.Cell>{post[1]}</Table.Cell>
-                                <Table.Cell>{post[2]}</Table.Cell>
-                                <Table.Cell>{post[3]}</Table.Cell>
-                            </Table.Row>
-                        </Table.Body>
-                    </Table>
+                <Table basic='very' key={post[0]} fixed>
+                    <Table.Body>
+                        <Table.Row verticalAlign='top'>
+                            <Table.Cell width={2} textAlign="left">{post[1]}</Table.Cell>
+                            <Table.Cell width={6} textAlign="left">{post[2]}</Table.Cell>
+                            <Table.Cell width={1} textAlign="left">{post[3]}</Table.Cell>
+                        </Table.Row>
+                    </Table.Body>
+                </Table>
             );
         });
-
-        const { Column, HeaderCell, Cell } = Table;
 
         return (
             <div>
@@ -70,34 +64,17 @@ class MyHome extends Component {
                     </div>
                 </div>
                 <div id="projects" className={homeStyles.projects}>
-                    <p style={{ fontSize: "3vh" }}>Some of my projects</p>
-                    {/* <Table
-                        wordWrap
-                        height={800}
-                        autoHeight
-                        data={this.state.posts}
-                        onRowClick={data => {
-                            console.log(data);
-                        }}
-                    >
-                        <Column>
-                            <HeaderCell align="center">Title</HeaderCell>
-                            <Cell dataKey="title" />
-                        </Column>
-
-                        <Column>
-                            <HeaderCell align="center">Description</HeaderCell>
-                            <Cell dataKey="description" />
-                        </Column>
-
-                        <Column>
-                            <HeaderCell align="center">Language</HeaderCell>
-                             <Cell dataKey="language" /> 
-                        </Column>
-                    </Table> */}
+                    <p style={{ fontSize: "3vh" }}>Some of my projects<br/><br/></p>
+                    <Table basic='very'>
+                        <Table.Header>
+                            <Table.Row>
+                                <Table.HeaderCell width={2} textAlign='center'>Title</Table.HeaderCell>
+                                <Table.HeaderCell width={6} textAlign='center'>Description</Table.HeaderCell>
+                                <Table.HeaderCell width={1} textAlign='center'>Language</Table.HeaderCell>
+                            </Table.Row>
+                        </Table.Header>
+                    </Table>
                     {posts}
-                    
-
                 </div>
             </div>
         )
