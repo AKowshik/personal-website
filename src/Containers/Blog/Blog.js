@@ -33,13 +33,13 @@ class Blog extends Component {
         console.log("State is ", this.state.posts);
         const posts = this.state.posts.map(post => {
             return (
-                <Link to={"/blog/" + post[0]}
-                    key={post[0]}>
+                <Link to={"/blog/" + post.id}
+                    key={post.id}>
                         
                     <BlogPost
-                        title={post[1]}
-                        date={post[2]}
-                        image={post[3]}
+                        title={post.title}
+                        date={post.published_on}
+                        image={post.image}
                         />
                 </Link>                  
             );

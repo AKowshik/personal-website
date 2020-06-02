@@ -18,31 +18,29 @@ class MyHome extends Component {
                     const posts = response.data;
                     this.setState({ posts: posts });
                     this.setState({ loadedPost: response.data });
-                    console.log("Axios called")
                 })
                 .catch(error => {
                     console.log(error);
                 })
         }
-
-
     }
 
     render() {
 
         //Fix issue with multiple udpates of state on scroll to table
         // console.log("State is ", this.state.posts);
+        //Redo table with rsuite. Check on small vertical screens
         const posts = this.state.posts.map(post => {
             return (
-                <Table basic='very' key={post[0]} fixed>
-                    <Table.Body>
-                        <Table.Row verticalAlign='top'>
-                            <Table.Cell width={2} textAlign="left">{post[1]}</Table.Cell>
-                            <Table.Cell width={6} textAlign="left">{post[2]}</Table.Cell>
-                            <Table.Cell width={1} textAlign="left">{post[3]}</Table.Cell>
-                        </Table.Row>
-                    </Table.Body>
-                </Table>
+                    <Table basic='very' key={post.id} fixed>
+                        <Table.Body>
+                            <Table.Row verticalAlign='top'>
+                                <Table.Cell width={2} textAlign="left">{post.title}</Table.Cell>
+                                <Table.Cell width={6} textAlign="left">{post.description}</Table.Cell>
+                                <Table.Cell width={1} textAlign="left">{post.language}</Table.Cell>
+                            </Table.Row>
+                        </Table.Body>
+                    </Table>
             );
         });
 
@@ -63,8 +61,8 @@ class MyHome extends Component {
                          I hope to use this page as a means to document and display all that I obtain from the world of computer science. </p>
                     </div>
                 </div>
-                <div id="projects" className={homeStyles.projects}>
-                    <p style={{ fontSize: "3vh" }}>Some of my projects<br/><br/></p>
+                <div id="projects1" className={homeStyles.projects}>
+                    <p style={{ fontSize: "3vh" }}>Some of my projects<br /><br /></p>
                     <Table basic='very'>
                         <Table.Header>
                             <Table.Row>

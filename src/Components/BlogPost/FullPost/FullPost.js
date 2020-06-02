@@ -18,6 +18,7 @@ class FullPost extends Component {
                     .then(response => {
                         console.log("Reponse data in blog is ", response.data)
                         this.setState({ loadedPost: response.data });
+                        console.log(response.data);
                     });
             }
         }
@@ -33,17 +34,17 @@ class FullPost extends Component {
         if (this.state.loadedPost) {
             post = (
                 <div>
-                    <div style={{backgroundImage: `url(${image})`, paddingBottom: "80px"}}>
+                    <div style={{backgroundImage: `url(${this.state.loadedPost[0].image})`, paddingBottom: "80px"}}>
                         <div className={postStyle.postTitle}>
-                            {this.state.loadedPost[0][1]}
+                            {this.state.loadedPost[0].title}
                         </div>
                     </div>
                     
-                    <p className={postStyle.postBody}>
-                        {this.state.loadedPost[0][3]}
+                    <div className={postStyle.postBody}>
+                        {this.state.loadedPost[0].published_on}
                          <Divider/>
-                        <Markup content={this.state.loadedPost[0][2]} />
-                    </p>
+                        <Markup content={this.state.loadedPost[0].body} />
+                    </div>
                 </div>
             )
         }

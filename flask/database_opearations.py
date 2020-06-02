@@ -8,9 +8,9 @@ class database_operations():
 
         self.mydb = mysql.connector.connect(
             host="localhost",
-            user="user",
-            passwd="password",
-            database="database"
+            user="root",
+            passwd="ankith",
+            database="website"
         )
 
         self.mycursor = self.mydb.cursor()
@@ -25,7 +25,7 @@ class database_operations():
 
     def get_posts(self):
 
-        command = "Select id, title, published_on from blog"
+        command = "Select id, title, published_on, image from blog"
         self.mycursor.execute(command)
         blog_posts_list = self.mycursor.fetchall()
         return json.dumps(blog_posts_list)
