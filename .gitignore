@@ -1,6 +1,11 @@
-node_modules
+/node_modules
 public
+node_modules
 package-lock.json
 src/Components/Assets/
 config
 scripts
+.vscode/
+build/
+express/database_operations.js
+flask/__pycache__/
