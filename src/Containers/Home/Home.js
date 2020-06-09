@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import MySidebar from '../../Components/MySidebar/MySidebar';
 import homeStyles from './Home.module.css'
 import axios from 'axios';
-import { Table } from 'semantic-ui-react';
+import { Table } from 'rsuite';
+const { Column, HeaderCell, Cell } = Table;
 
 class MyHome extends Component {
 
@@ -27,22 +28,19 @@ class MyHome extends Component {
 
     render() {
 
-        //Fix issue with multiple udpates of state on scroll to table
-        // console.log("State is ", this.state.posts);
-        //Redo table with rsuite. Check on small vertical screens
-        const posts = this.state.posts.map(post => {
+        const openProjectGit = (data) => {
             return (
-                    <Table basic='very' key={post.id} fixed>
-                        <Table.Body>
-                            <Table.Row verticalAlign='top'>
-                                <Table.Cell width={2} textAlign="left">{post.title}</Table.Cell>
-                                <Table.Cell width={6} textAlign="left">{post.description}</Table.Cell>
-                                <Table.Cell width={1} textAlign="left">{post.language}</Table.Cell>
-                            </Table.Row>
-                        </Table.Body>
-                    </Table>
-            );
-        });
+                <div>
+                   {window.open(data.link, "_blank")}
+                </div>
+            )
+        }
+
+        const tableHeaderStyle = {
+            fontSize: "17px",
+            fontWeight: "bold",
+            color: "black"
+        }
 
         return (
             <div>
@@ -63,16 +61,31 @@ class MyHome extends Component {
                 </div>
                 <div id="projects1" className={homeStyles.projects}>
                     <p style={{ fontSize: "3vh" }}>Some of my projects<br /><br /></p>
-                    <Table basic='very'>
-                        <Table.Header>
-                            <Table.Row>
-                                <Table.HeaderCell width={2} textAlign='center'>Title</Table.HeaderCell>
-                                <Table.HeaderCell width={6} textAlign='center'>Description</Table.HeaderCell>
-                                <Table.HeaderCell width={1} textAlign='center'>Language</Table.HeaderCell>
-                            </Table.Row>
-                        </Table.Header>
+
+                    <Table
+                        wordWrap
+                        autoHeight
+                        data={this.state.posts}
+                        onRowClick={data => {
+                            console.log(data);
+                            openProjectGit(data);
+                        }}
+                    >
+                        <Column flexGrow={2.5} fixed>
+                            <HeaderCell style={tableHeaderStyle}>Title</HeaderCell>
+                            <Cell dataKey="title" />
+                        </Column>
+
+                        <Column flexGrow={7} fixed>
+                            <HeaderCell style={tableHeaderStyle}>Description</HeaderCell>
+                            <Cell dataKey="description" />
+                        </Column>
+
+                        <Column flexGrow={1.5} fixed>
+                            <HeaderCell style={tableHeaderStyle}>Language</HeaderCell>
+                            <Cell dataKey="language" />
+                        </Column>
                     </Table>
-                    {posts}
                 </div>
             </div>
         )
