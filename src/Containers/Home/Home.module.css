@@ -3,10 +3,41 @@
     position: absolute; 
     margin-left: 50vw;
     margin-right: 5vw;
-    font-size: 4vh;
+    font-size: x-large;
     /* width: 45vw; */
     top: 40vh;
     /* background-color: lightseagreen; */
+   }
+
+   .myInfo {
+    position: absolute;
+    margin-top: 20vh;
+    margin-left: 30vw;
+    margin-right: 30vw;
+    font-size: xx-large;
+    text-align: justify;
+    /* width: 90vw; */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    /* background-color: mediumslateblue; */
+    text-justify: inter-word;
+  }
+
+  .myInfoDesc {
+    font-size: x-large;
+  }
+
+   @media (max-width: 800px) {
+     .mybio {
+       font-size: large;
+     }
+
+     .myInfo {
+      font-size: x-large;
+     }
+
+     .myInfoDesc{
+      font-size: large;
+     }
    }
 
   .openingPage {
@@ -23,19 +54,6 @@
     background-color: black;
     color: white;
     height: 100vh;
-  }
-
-  .myInfo {
-    position: absolute;
-    margin-top: 20vh;
-    margin-left: 30vw;
-    margin-right: 30vw;
-    font-size: 5vh;
-    text-align: justify;
-    /* width: 90vw; */
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    /* background-color: mediumslateblue; */
-    text-justify: inter-word;
   }
 
   .mySidebar {

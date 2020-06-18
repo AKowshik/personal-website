@@ -55,12 +55,12 @@ class MyHome extends Component {
                 <div className={homeStyles.aboutMe}>
                     <div className={homeStyles.myInfo}>
                         <p style={{ textAlign: "center" }}>Hi! Welcome to my blog.</p>
-                        <p style={{ fontSize: "3vh" }}>Always a believer in learning through practice and exploration,
+                        <p className={homeStyles.myInfoDesc}>Always a believer in learning through practice and exploration,
                          I hope to use this page as a means to document and display all that I obtain from the world of computer science. </p>
                     </div>
                 </div>
                 <div id="projects1" className={homeStyles.projects}>
-                    <p style={{ fontSize: "3vh" }}>Some of my projects<br /><br /></p>
+                    <p className={homeStyles.myInfoDesc}>Some of my projects<br /><br /></p>
 
                     <Table
                         wordWrap
