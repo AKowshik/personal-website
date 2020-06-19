@@ -12,17 +12,19 @@ class ContactForm extends Component {
                 message: ''
             },
         };
-
+        this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(value) {
         this.setState({
             formValue: value
         });
+        console.log(this.state.formValue)
     }
 
     render() {
         return (
+                    
                     <Form fluid onChange={this.handleChange} formValue={this.state.formValue}>
                         <FormGroup>
                             <ControlLabel>Name</ControlLabel>
